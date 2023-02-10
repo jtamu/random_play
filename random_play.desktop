@@ -1,0 +1,28 @@
+[Desktop Entry]
+
+# "Application", "Link" or "Directory"
+Type=Application
+
+# The version of the Desktop Entry Specification
+Version=1.0
+
+# The name of the application
+Name=RandomPlay
+
+# A comment which will be used as a tooltip
+Comment="オンラインの楽曲をランダム再生するアプリ。"
+
+# The path to the folder in which the executable is run
+#
+
+# The executable of the application, possibly with arguments
+Exec=/path/to/your/app/random_play/random_play
+
+# The icon to display
+Icon=/path/to/your/app/random_play/cafe-icon01.png
+
+# Describes whether this application needs to be run in a terminal or not
+Terminal=true
+
+# Describes the categories in which this entry should be shown
+Categories=Utility;Application;

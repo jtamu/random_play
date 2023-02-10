@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exec &>> ./random_play.log
+exec 2>&1 | tee ./random_play.log
 
 play_list=./play_list.txt
 
