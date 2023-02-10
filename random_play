@@ -1,8 +1,11 @@
 #!/bin/bash
 
-exec 2>&1 | tee ./random_play.log
+exec_path=$(dirname $0)
 
-play_list=./play_list.txt
+exec | tee -a $exec_path/random_play.log
+exec 2>> $exec_path/random_play.log
+
+play_list=$exec_path/play_list.txt
 
 random_play () {
 	cat $play_list | awk 'NR=='$(echo $(($RANDOM % $(cat $play_list | wc -l) + 1)))'{print $0}' | xargs mpv --no-video
