@@ -1,0 +1,19 @@
+#!/bin/bash
+
+exec &>> ./random_play.log
+
+play_list=./play_list.txt
+
+random_play () {
+	cat $play_list | awk 'NR=='$(echo $(($RANDOM % $(cat $play_list | wc -l) + 1)))'{print $0}' | xargs mpv --no-video
+}
+
+echo "[`date +'%Y/%m/%d %H:%M:%S'`] play start"
+
+while true; do
+	random_play
+	[ $? != 0 ] && exit 1
+	sleep 1
+done
+
+echo "[`date +'%Y/%m/%d %H:%M:%S'`] play end"
