@@ -8,7 +8,7 @@ exec 2>> $exec_path/random_play.log
 play_list=$exec_path/play_list.txt
 
 random_play () {
-	cat $play_list | awk 'NR=='$(echo $(($RANDOM % $(cat $play_list | wc -l) + 1)))'{print $0}' | xargs mpv --no-video
+	cat $play_list | awk 'NR=='$(echo $(($RANDOM % $(cat $play_list | wc -l) + 1)))'{print $0}' | xargs yt-dlp --no-continue --no-progress -f 140 -o - | mplayer -af volnorm -
 }
 
 echo "[`date +'%Y/%m/%d %H:%M:%S'`] play start"
